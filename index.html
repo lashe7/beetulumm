@@ -34,7 +34,7 @@
             justify-content: center;
             align-items: center;
             overflow-x: hidden;
-            overflow-y: auto; /* Mobilde dikey kaydırma her zaman aktif ve akıcı */
+            overflow-y: auto; /* Dikey kaydırma her zaman aktif ve akıcı */
             -webkit-overflow-scrolling: touch;
             perspective: 1200px;
             position: relative;
@@ -135,7 +135,7 @@
             backdrop-filter: blur(35px);
             -webkit-backdrop-filter: blur(35px);
             border: 1px solid rgba(255, 255, 255, 0.08); /* Minimalist ince gümüş çizgi */
-            padding: 40px 24px; /* Mobilde sağdan soldan boşluklar optimize edildi */
+            padding: 40px 24px; /* Sağdan soldan boşluklar optimize edildi */
             border-radius: 28px;
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 
                         inset 0 1px 1px rgba(255, 255, 255, 0.08);
@@ -149,7 +149,7 @@
 
         h1 {
             font-family: 'Dancing Script', cursive;
-            font-size: 2.8rem; /* Mobilde devasa görünmemesi için dengelendi */
+            font-size: 2.8rem; /* Mobilde dengelendi */
             color: var(--primary-light);
             margin-bottom: 18px;
             background: linear-gradient(135deg, #FFFFFF, #E5E5EA, #AEAEB2);
@@ -169,7 +169,7 @@
             letter-spacing: 0.5px;
         }
 
-        /* --- APPLE TARZI PARLAK BEYAZ KALP ICON --- */
+        /* --- APPLE TARZI BEYAZ KALP ICON --- */
         .heart-container {
             display: inline-block;
             margin-bottom: 20px;
@@ -228,7 +228,7 @@
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.12), inset 0 2px 4px rgba(0,0,0,0.4);
         }
 
-        /* Mobil Uyumlu Platin Buton */
+        /* Premium Platin Buton */
         .btn-premium {
             background: linear-gradient(135deg, #FFFFFF, #E5E5EA, #D1D1D6);
             color: #1C1C1E;
@@ -242,7 +242,7 @@
             box-shadow: 0 10px 20px rgba(255, 255, 255, 0.08);
             transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             position: relative;
-            width: 90%; /* Mobilde tam boy butona yakın asil duruş */
+            width: 90%; 
             max-width: 320px;
         }
         .btn-premium:hover {
@@ -260,7 +260,7 @@
             width: 100%;
         }
 
-        /* --- SİTE İÇERİĞİ VE MOBİL RESİM ÇERÇEVELERİ --- */
+        /* --- SİTE İÇERİĞİ --- */
         #content {
             display: none;
             opacity: 0;
@@ -271,7 +271,7 @@
         /* Sanat Galerisi */
         .gallery {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* Tablet ve masaüstünde yan yana ikişerli */
+            grid-template-columns: repeat(2, 1fr); /* PC'de yan yana ikişerli */
             gap: 24px; /* PC için ferah aralıklar */
             margin: 25px 0;
             padding: 0;
@@ -279,13 +279,13 @@
 
         .img-wrapper {
             background: #111115; /* Mat lüks antrasit iç paspartu */
-            padding: 10px 10px 36px 10px; /* PC'de estetik çerçeve payı */
+            padding: 10px 10px 38px 10px; /* Estetik çerçeve payı */
             border-radius: 6px;
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
             border: 1px solid rgba(255, 255, 255, 0.08);
             transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
             position: relative;
-            height: 295px; /* PC'de dikey Polaroid fotoğraflarının kesilmemesi için ideal altın oran */
+            height: 330px; /* Fotoğrafların kesilmesini önlemek için yüksekliği ideal dikey orana yükselttik */
             overflow: hidden;
         }
 
@@ -311,8 +311,8 @@
         .gallery img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            object-position: center 20%; /* Dikey portrelerde yüzleri daha iyi ortalamak için hafif yukarı kaydırıldı */
+            object-fit: cover; /* Çerçeveyi doldurur */
+            object-position: center 30%; /* Dikey fotoğraflarda yüzleri milimetrik olarak ortalar */
             border-radius: 3px;
             filter: grayscale(10%) contrast(102%);
             transition: all 0.5s ease;
@@ -456,7 +456,7 @@
                 font-size: 2.3rem; /* Küçük ekranlı telefonlarda taşmayı engeller */
             }
             .container {
-                padding: 30px 16px; /* Ekran kenarlarındaki payları daraltır, alanı genişletir */
+                padding: 30px 16px; /* Kenar payları daraltılır, alanı genişletir */
                 margin: 15px auto;
             }
             .gallery {
@@ -464,11 +464,11 @@
                 gap: 20px;
             }
             .img-wrapper {
-                height: 260px; /* Alt alta akan fotoğrafların dikey görkemi artırıldı */
+                height: 360px; /* Alt alta akan fotoğrafların dikey görkemi artırıldı */
                 padding: 10px 10px 36px 10px;
             }
             .img-wrapper::after {
-                font-size: 1.1rem;
+                font-size: 1.15rem;
             }
             .love-letter {
                 padding: 20px 15px;
@@ -481,7 +481,7 @@
             input[type="password"] {
                 width: 95%;
             }
-            .btn-premium; {
+            .btn-premium {
                 width: 95%;
             }
         }
