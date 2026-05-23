@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Betülümm</title>
     <!-- Premium Fontlar -->
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -22,6 +22,7 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            -webkit-tap-highlight-color: transparent; /* Mobil tıklama mavi gölgesini siler */
         }
 
         body {
@@ -33,6 +34,8 @@
             justify-content: center;
             align-items: center;
             overflow-x: hidden;
+            overflow-y: auto; /* Mobilde dikey kaydırma her zaman aktif ve akıcı */
+            -webkit-overflow-scrolling: touch;
             perspective: 1200px;
             position: relative;
         }
@@ -41,30 +44,30 @@
         .aura-blob {
             position: fixed;
             border-radius: 50%;
-            filter: blur(140px);
+            filter: blur(100px); /* Mobilde daha iyi performans için blur azaltıldı */
             z-index: -2;
             opacity: 0.12;
             pointer-events: none;
             animation: float-aura 20s infinite alternate ease-in-out;
         }
         .aura-1 {
-            width: 500px;
-            height: 500px;
+            width: 300px;
+            height: 300px;
             background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, rgba(9,9,11,0) 70%);
-            top: -10%;
-            left: -10%;
+            top: -5%;
+            left: -5%;
         }
         .aura-2 {
-            width: 600px;
-            height: 600px;
+            width: 400px;
+            height: 400px;
             background: radial-gradient(circle, rgba(174, 174, 178, 0.3) 0%, rgba(9,9,11,0) 70%);
-            bottom: -15%;
-            right: -10%;
+            bottom: -10%;
+            right: -5%;
             animation-delay: -5s;
         }
         .aura-3 {
-            width: 400px;
-            height: 400px;
+            width: 250px;
+            height: 250px;
             background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(9,9,11,0) 70%);
             top: 50%;
             left: 50%;
@@ -74,7 +77,7 @@
 
         @keyframes float-aura {
             0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(30px, 20px) scale(1.05); }
+            100% { transform: translate(20px, 15px) scale(1.05); }
         }
 
         /* --- ELMAS PARILTILARI VE SAF BEYAZ KAYAN YILDIZLAR --- */
@@ -104,9 +107,9 @@
 
         @keyframes shooting {
             0% { transform: translate(0, 0) rotate(-40deg); opacity: 0; width: 0; }
-            8% { opacity: 0.8; width: 140px; }
-            28% { transform: translate(450px, 380px) rotate(-40deg); opacity: 0; width: 0; }
-            100% { transform: translate(450px, 380px) rotate(-40deg); opacity: 0; }
+            8% { opacity: 0.8; width: 100px; }
+            28% { transform: translate(300px, 250px) rotate(-40deg); opacity: 0; width: 0; }
+            100% { transform: translate(300px, 250px) rotate(-40deg); opacity: 0; }
         }
 
         .star-1 { top: 8%; left: 15%; animation-delay: 0.8s; animation-duration: 6s; }
@@ -126,94 +129,94 @@
             100% { opacity: 0.85; transform: scale(1.2); }
         }
 
-        /* --- ANA TAYF KAPLARI --- */
+        /* --- ANA EKRAN KUTULARI (KAPSAYICILAR) --- */
         .container {
             background: var(--card-bg);
             backdrop-filter: blur(35px);
             -webkit-backdrop-filter: blur(35px);
             border: 1px solid rgba(255, 255, 255, 0.08); /* Minimalist ince gümüş çizgi */
-            padding: 55px 40px;
-            border-radius: 32px;
-            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.8), 
+            padding: 40px 24px; /* Mobilde sağdan soldan boşluklar optimize edildi */
+            border-radius: 28px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 
                         inset 0 1px 1px rgba(255, 255, 255, 0.08);
             text-align: center;
-            max-width: 660px;
-            width: 90%;
-            margin: 50px auto;
+            max-width: 620px;
+            width: 92%; /* Ekran genişliğine tam uyum */
+            margin: 30px auto;
             transition: all 0.9s cubic-bezier(0.25, 1, 0.5, 1);
             z-index: 10;
         }
 
         h1 {
             font-family: 'Dancing Script', cursive;
-            font-size: 3.6rem;
+            font-size: 2.8rem; /* Mobilde devasa görünmemesi için dengelendi */
             color: var(--primary-light);
-            margin-bottom: 22px;
+            margin-bottom: 18px;
             background: linear-gradient(135deg, #FFFFFF, #E5E5EA, #AEAEB2);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
             letter-spacing: 0.5px;
+            line-height: 1.2;
         }
 
         p.description {
-            font-size: 1.05rem;
+            font-size: 0.95rem;
             color: var(--text-muted);
-            margin-bottom: 35px;
-            line-height: 1.7;
+            margin-bottom: 30px;
+            line-height: 1.6;
             font-weight: 300;
-            letter-spacing: 0.8px;
+            letter-spacing: 0.5px;
         }
 
-        /* --- IPHONE/APPLE TARZI BEYAZ KALP ICON --- */
+        /* --- APPLE TARZI PARLAK BEYAZ KALP ICON --- */
         .heart-container {
             display: inline-block;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             cursor: pointer;
             transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         
-        /* Özelleştirilmiş Apple Tarzı Parlak Beyaz Kalp */
         .apple-white-heart {
-            width: 90px;
-            height: 90px;
-            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.4));
+            width: 80px;
+            height: 80px;
+            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.4));
             animation: pulse 1.8s infinite;
             transition: transform 0.4s ease;
         }
         
         .heart-container:hover {
-            transform: scale(1.15) rotate(4deg);
+            transform: scale(1.1) rotate(4deg);
         }
 
         @keyframes pulse {
-            0% { transform: scale(1); filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.3)); }
-            50% { transform: scale(1.08); filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.6)); }
-            100% { transform: scale(1); filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.3)); }
+            0% { transform: scale(1); filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.3)); }
+            50% { transform: scale(1.05); filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.5)); }
+            100% { transform: scale(1); filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.3)); }
         }
 
         .input-group {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 20px;
-            margin-top: 10px;
+            gap: 15px;
+            margin-top: 5px;
             width: 100%;
         }
 
         input[type="password"] {
-            padding: 16px 25px;
-            width: 85%;
-            background: rgba(9, 9, 11, 0.7);
+            padding: 15px 20px;
+            width: 90%;
+            background: rgba(9, 9, 11, 0.8);
             border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 40px;
-            font-size: 16px;
+            border-radius: 24px;
+            font-size: 15px;
             color: var(--text-color);
             text-align: center;
             outline: none;
             transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             box-shadow: inset 0 2px 4px rgba(0,0,0,0.4);
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
         }
         input[type="password"]::placeholder {
             color: rgba(142, 142, 147, 0.4);
@@ -221,29 +224,33 @@
         }
         input[type="password"]:focus {
             border-color: var(--primary-light);
-            background: rgba(9, 9, 11, 0.9);
-            box-shadow: 0 0 25px rgba(255, 255, 255, 0.12), inset 0 2px 4px rgba(0,0,0,0.4);
+            background: rgba(9, 9, 11, 0.95);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.12), inset 0 2px 4px rgba(0,0,0,0.4);
         }
 
-        /* Sessiz Lüks Platin/Saten Buton */
+        /* Mobil Uyumlu Platin Buton */
         .btn-premium {
             background: linear-gradient(135deg, #FFFFFF, #E5E5EA, #D1D1D6);
-            color: #1C1C1E; /* Koyu kontrast asil yazı */
+            color: #1C1C1E;
             border: none;
-            padding: 16px 48px;
-            border-radius: 40px;
-            font-size: 15px;
+            padding: 15px 35px;
+            border-radius: 24px;
+            font-size: 14px;
             font-weight: 600;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             cursor: pointer;
-            box-shadow: 0 12px 30px rgba(255, 255, 255, 0.12);
-            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.08);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             position: relative;
+            width: 90%; /* Mobilde tam boy butona yakın asil duruş */
+            max-width: 320px;
         }
         .btn-premium:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 16px 35px rgba(255, 255, 255, 0.25);
-            background: linear-gradient(135deg, #FFFFFF, #FFFFFF, #E5E5EA);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(255, 255, 255, 0.18);
+        }
+        .btn-premium:active {
+            transform: translateY(1px);
         }
 
         #love-btn-container {
@@ -253,52 +260,52 @@
             width: 100%;
         }
 
-        /* --- SİTE İÇERİĞİ VE PLATİN RESİM ÇERÇEVELERİ --- */
+        /* --- SİTE İÇERİĞİ VE MOBİL RESİM ÇERÇEVELERİ --- */
         #content {
             display: none;
             opacity: 0;
-            transform: translateY(40px);
+            transform: translateY(30px);
             transition: all 1.2s cubic-bezier(0.23, 1, 0.32, 1);
         }
 
-        /* Sanat Galerisi Minimalist Çerçeveler */
+        /* Mobil Uyumlu Sanat Galerisi */
         .gallery {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 28px;
-            margin: 40px 0;
-            padding: 10px;
+            grid-template-columns: repeat(2, 1fr); /* Tablet ve masaüstünde yan yana ikişerli */
+            gap: 16px; /* Mobilde daha kibar aralıklar */
+            margin: 25px 0;
+            padding: 0;
         }
 
         .img-wrapper {
             background: #111115; /* Mat lüks antrasit iç paspartu */
-            padding: 14px 14px 44px 14px;
+            padding: 8px 8px 32px 8px; /* Mobilde kibar çerçeve payı */
             border-radius: 6px;
-            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.1); /* Minimalist platin çerçeve çizgisi */
-            transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
             position: relative;
-            height: 290px;
+            height: 200px; /* Mobilde çok küçülmemesi için dikey oran optimize edildi */
             overflow: hidden;
         }
 
-        /* Organik Asil Eğimler */
-        .img-wrapper:nth-child(1) { transform: rotate(-2.5deg); }
-        .img-wrapper:nth-child(2) { transform: rotate(2.5deg); }
-        .img-wrapper:nth-child(3) { transform: rotate(1.5deg); }
-        .img-wrapper:nth-child(4) { transform: rotate(-1.5deg); }
+        /* Organik Asil Eğimler (Çok hafifletildi ki mobil akışı bozmasın) */
+        .img-wrapper:nth-child(1) { transform: rotate(-1.5deg); }
+        .img-wrapper:nth-child(2) { transform: rotate(1.5deg); }
+        .img-wrapper:nth-child(3) { transform: rotate(1deg); }
+        .img-wrapper:nth-child(4) { transform: rotate(-1deg); }
 
         .img-wrapper::after {
-            content: 'Hayaatımınn annlaamıı 🤍';
+            content: 'Heerrseeyimm 🤍';
             position: absolute;
-            bottom: 14px;
+            bottom: 8px;
             left: 50%;
             transform: translateX(-50%);
             font-family: 'Dancing Script', cursive;
-            font-size: 1.4rem;
+            font-size: 0.95rem; /* Mobilde sığması için font dengelendi */
             color: var(--primary-light);
             text-shadow: 0 2px 4px rgba(0,0,0,0.6);
-            letter-spacing: 1px;
+            white-space: nowrap;
         }
 
         .gallery img {
@@ -307,45 +314,47 @@
             object-fit: cover;
             border-radius: 3px;
             filter: grayscale(10%) contrast(102%);
-            transition: all 0.6s ease;
+            transition: all 0.5s ease;
         }
 
-        .img-wrapper:hover {
-            transform: scale(1.08) rotate(0deg) translateY(-8px);
+        .img-wrapper:hover, .img-wrapper:active {
+            transform: scale(1.05) rotate(0deg) translateY(-5px);
             z-index: 20;
-            box-shadow: 0 30px 60px rgba(255, 255, 255, 0.15);
-            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 20px 40px rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.25);
         }
-        .img-wrapper:hover img {
+        
+        .img-wrapper:hover img, .img-wrapper:active img {
             filter: grayscale(0%) contrast(100%);
         }
 
-        /* --- MEKTUP BÖLÜMÜ --- */
+        /* --- MOBİL MEKTUP BÖLÜMÜ --- */
         .love-letter {
-            line-height: 2;
-            font-size: 1.05rem;
+            line-height: 1.8;
+            font-size: 0.98rem; /* Mobilde akıcı okuma boyutu */
             color: var(--text-color);
             text-align: justify;
             background: rgba(22, 22, 26, 0.45);
-            padding: 40px;
-            border-radius: 24px;
-            border-right: 1px solid rgba(255, 255, 255, 0.12);
-            border-left: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 24px 20px; /* Mobilde ezilmeyen iç padding */
+            border-radius: 20px;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
             border-top: 1px solid rgba(255, 255, 255, 0.04);
             border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-            margin-top: 40px;
+            margin-top: 30px;
             font-weight: 300;
-            box-shadow: inset 0 0 30px rgba(0,0,0,0.5);
-            letter-spacing: 0.5px;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+            letter-spacing: 0.3px;
+            word-wrap: break-word; /* Uzun kelimelerin taşmasını önler */
         }
 
-        /* Elmas-Platin Varaklı Büyük 'A' Harfi */
+        /* Mobil Uyumlu Büyük 'A' Harfi */
         .love-letter::first-letter {
-            font-size: 3rem;
+            font-size: 2.8rem;
             font-family: 'Playfair Display', serif;
             font-weight: 700;
             float: left;
-            margin-right: 12px;
+            margin-right: 10px;
             line-height: 0.85;
             background: linear-gradient(135deg, #FFFFFF, #E5E5EA, #8E8E93);
             -webkit-background-clip: text;
@@ -355,22 +364,22 @@
 
         .error-msg {
             color: #ff453a;
-            margin-top: 18px;
-            font-size: 14px;
+            margin-top: 15px;
+            font-size: 13px;
             display: none;
             animation: shake 0.4s ease;
             font-weight: 500;
             letter-spacing: 0.5px;
         }
 
-        /* --- LÜKS MÜZİK KONTROLÜ (GİZLİ BAŞLAR) --- */
+        /* --- MOBİL UYUMLU MÜZİK KONTROLÜ --- */
         .music-control {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 55px;
-            height: 55px;
-            background: rgba(22, 22, 26, 0.8);
+            bottom: 20px; /* Mobilde parmağın rahat erişeceği yer */
+            right: 20px;
+            width: 48px;
+            height: 48px;
+            background: rgba(22, 22, 26, 0.85);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.15);
@@ -380,8 +389,8 @@
             align-items: center;
             cursor: pointer;
             z-index: 100;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.1);
-            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
             opacity: 0;
             visibility: hidden;
             transform: scale(0.8);
@@ -393,25 +402,23 @@
             transform: scale(1);
         }
 
-        .music-control:hover {
-            transform: scale(1.08);
-            border-color: rgba(255, 255, 255, 0.4);
-            box-shadow: 0 15px 35px rgba(255, 255, 255, 0.15);
+        .music-control:active {
+            transform: scale(0.9);
         }
 
         /* Akıcı Ses Dalgaları */
         .music-waves {
             display: flex;
             align-items: flex-end;
-            gap: 3px;
-            height: 18px;
+            gap: 2.5px;
+            height: 14px;
         }
 
         .music-waves span {
-            width: 3px;
-            height: 4px;
+            width: 2.5px;
+            height: 3px;
             background-color: var(--primary-light);
-            border-radius: 3px;
+            border-radius: 2px;
             transition: all 0.3s ease;
             animation: bounce-wave 0.8s ease-in-out infinite alternate;
             animation-play-state: paused;
@@ -421,25 +428,61 @@
             animation-play-state: running;
         }
 
-        /* Her dalgaya farklı gecikmeler vererek gerçekçi yapıyoruz */
         .music-waves span:nth-child(1) { animation-delay: 0.1s; }
         .music-waves span:nth-child(2) { animation-delay: 0.4s; }
         .music-waves span:nth-child(3) { animation-delay: 0.2s; }
         .music-waves span:nth-child(4) { animation-delay: 0.5s; }
 
         @keyframes bounce-wave {
-            0% { height: 4px; }
-            100% { height: 18px; }
+            0% { height: 3px; }
+            100% { height: 14px; }
         }
 
         @keyframes fadeIn { 
             from { opacity: 0; transform: translateY(15px); } 
             to { opacity: 1; transform: translateY(0); } 
         }
+        
         @keyframes shake {
             0%, 100% { transform: translateX(0); }
             20%, 60% { transform: translateX(-6px); }
             40%, 80% { transform: translateX(6px); }
+        }
+
+        /* --- TELEFONLAR İÇİN MEDYA SORGULARI (ÖZEL OPTİMİZASYON) --- */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2.3rem; /* Küçük ekranlı telefonlarda taşmayı engeller */
+            }
+            .container {
+                padding: 30px 16px; /* Ekran kenarlarındaki payları daraltır, alanı genişletir */
+                margin: 15px auto;
+            }
+            .gallery {
+                grid-template-columns: 1fr; /* Mobilde fotoğraflar alt alta asilce akar */
+                gap: 20px;
+            }
+            .img-wrapper {
+                height: 260px; /* Alt alta akan fotoğrafların dikey görkemi artırıldı */
+                padding: 10px 10px 36px 10px;
+            }
+            .img-wrapper::after {
+                font-size: 1.1rem;
+            }
+            .love-letter {
+                padding: 20px 15px;
+                font-size: 0.95rem;
+                line-height: 1.7;
+            }
+            .love-letter::first-letter {
+                font-size: 2.5rem;
+            }
+            input[type="password"] {
+                width: 95%;
+            }
+            .btn-premium {
+                width: 95%;
+            }
         }
     </style>
 </head>
@@ -465,8 +508,7 @@
     </div>
 
     <!-- SES DOSYASI ELEMENTİ (Arka planda döngü olarak çalar) -->
-    <!-- Şebnem Ferah - Yağmurlar şarkısının çalması için klasörüne 'yagmurlar.mp3' isimli dosyayı eklemen yeterlidir -->
-    <audio id="bg-music" loop>
+    <audio id="bg-music" loop playsinline>
         <source src="yagmurlar.mp3" type="audio/mp3">
     </audio>
 
@@ -506,7 +548,7 @@
         <p class="description">Lütfen giriş yapmak için tanışma tarihimizi gir sevgilim...</p>
         
         <div class="input-group">
-            <input type="password" id="password" placeholder="hatırlatayım: 11052026">
+            <input type="password" id="password" placeholder="hatırlatayım: 11052026" inputmode="numeric">
             <button class="btn-premium" onclick="checkPassword()">Giriş Yap</button>
             
             <div id="love-btn-container">
